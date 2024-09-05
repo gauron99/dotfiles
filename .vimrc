@@ -14,7 +14,7 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Turn backup off, since most stuff is in SVN, git etc. anyway...
+" Turn backup off
 set nobackup
 set nowb
 set noswapfile
