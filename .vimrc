@@ -25,3 +25,5 @@ set shiftwidth=2
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+set laststatus=2

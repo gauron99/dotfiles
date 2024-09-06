@@ -34,4 +34,4 @@ eval "$(starship init bash)"
 . "$HOME/.cargo/env"
 
 # add alacritty binary to PATH
-PATH="/home/dfridric/cloned/alacritty/target/release:$PATH"
+#PATH="/home/dfridric/cloned/alacritty/target/release:$PATH"
