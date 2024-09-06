@@ -1,0 +1,8 @@
+# my alacritty config
+#
+# author: github.com/gauron99
+
+[window]
+opacity = 0.8
+decorations = "None"
+dynamic_padding = true
