@@ -1,0 +1,54 @@
+#!/usr/bin/bash
+
+# do stuff with func
+# author: gauron99
+
+# sets FUNC_BIN_PATH to path if successful
+
+# this validates the target dir. Can add various checks: go.mod, git source?
+validate_path(){
+	path=$1
+	if [ -f "$path/func" ];then
+		return 0
+	fi
+	echo "func bin doesnt exists in '$path', is it built?"
+	return 1
+}
+
+# set func alias to a path provided via $1 argument or current directory if $1 is empty
+# Will do some basic validation of the directory (needs file called func atleast)
+set_func_alias(){
+	path=$PWD
+	if [ "$1" == "reset" ];then
+		export FUNC_BIN_PATH=
+		unalias f
+		unalias func
+		echo "unalias f & func"
+		return 0
+	fi
+	if [ "$1" != "" ];then
+		path="$1"
+	fi
+	#	create a full path for binary (strip any trailing slash, if any)	
+	bin="${path%/}/func"
+
+	# validate path, exit if returns false
+	validate_path $path || return
+
+	# set func
+	alias f="$bin"
+	alias func="$bin"
+	export FUNC_BIN_PATH="$bin"
+	
+	echo "successfuly set func alias to $bin"
+}
+
+main(){
+	set_func_alias $@
+}
+# always source this file ('source funchere' or '. funchere')
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    echo "This script should be sourced, not executed."
+    exit 1
+fi
+main $@
