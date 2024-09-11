@@ -14,3 +14,6 @@ alias ga='git add'
 alias gc='git commit'
 alias gp='git push' #might modify to always push to my origin branch?
 
+#k8s
+alias k='kubectl'
+alias kns='kubens'

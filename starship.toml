@@ -1,127 +1,245 @@
-[buf]
-format = '(with [$symbol$version ]($style))'
+
+format = '''
+$custom
+$all'''
+
+[custom.myfunc_default]
+when = """! using-custom-func.sh"""
+command = 'echo "forked/func (default)"'
+style = "yellow"
+
+[custom.myfunc_nondefault]
+when = """using-custom-func.sh"""
+command = 'current-func-bin-path.sh'
+style = "yellow"
+
+# [env_var.FUNC_BIN_PATH]
+# variable = "FUNC_BIN_PATH"
+# default = "forked/func (default)"
+# format = "[$env_value]($style)"
+# style = "yellow"
+
+# [custom.my_func]
+# when = true
+# command = '[ -z $FUNC_BIN_PATH ] && echo "using default func" || echo "using $FUNC_BIN_PATH"'
+# command = 'echo "AWDADD"'
+
+[aws]
+symbol = "aws "
+
+[azure]
+symbol = "az "
 
 [bun]
-format = '(via [$symbol($version )]($style))'
+symbol = "bun "
 
 [c]
-format = '(via [$symbol($version(-$name) )]($style))'
-
-[cmake]
-format = '(via [$symbol($version )]($style))'
+symbol = "C "
 
 [cobol]
-format = '(via [$symbol($version )]($style))'
+symbol = "cobol "
+
+[conda]
+symbol = "conda "
 
 [crystal]
-format = '(via [$symbol($version )]($style))'
+symbol = "cr "
+
+[cmake]
+symbol = "cmake "
 
 [daml]
-format = '(via [$symbol($version )]($style))'
+symbol = "daml "
 
 [dart]
-format = '(via [$symbol($version )]($style))'
+symbol = "dart "
 
 [deno]
-format = '(via [$symbol($version )]($style))'
+symbol = "deno "
 
 [dotnet]
-format = '(via [$symbol($version )(🎯 $tfm )]($style))'
+symbol = ".NET "
+
+[directory]
+read_only = " 󰌾"
+
+[docker_context]
+symbol = "docker "
 
 [elixir]
-format = '(via [$symbol($version \(OTP $otp_version\) )]($style))'
+symbol = "exs "
 
 [elm]
-format = '(via [$symbol($version )]($style))'
-
-[erlang]
-format = '(via [$symbol($version )]($style))'
+symbol = "elm "
 
 [fennel]
-format = '(via [$symbol($version )]($style))'
+symbol = "fnl "
+
+[fossil_branch]
+symbol = "fossil "
+
+[gcloud]
+symbol = "gcp "
+
+[git_branch]
+symbol = " "
 
 [gleam]
-format = '(via [$symbol($version )]($style))'
+symbol = "gleam "
 
 [golang]
-format = '(via [$symbol($version )]($style))'
+symbol = "go "
 
-[haskell]
-format = '(via [$symbol($version )]($style))'
+[gradle]
+symbol = "gradle "
 
-[helm]
-format = '(via [$symbol($version )]($style))'
+[guix_shell]
+symbol = "guix "
+
+[hg_branch]
+symbol = "hg "
 
 [java]
-format = '(via [$symbol($version )]($style))'
+symbol = "java "
 
 [julia]
-format = '(via [$symbol($version )]($style))'
+symbol = "jl "
 
 [kotlin]
-format = '(via [$symbol($version )]($style))'
+symbol = "kt "
 
 [lua]
-format = '(via [$symbol($version )]($style))'
-
-[nim]
-format = '(via [$symbol($version )]($style))'
+symbol = "lua "
 
 [nodejs]
-format = '(via [$symbol($version )]($style))'
+symbol = "nodejs "
+
+[memory_usage]
+symbol = "memory "
+
+[meson]
+symbol = "meson "
+
+[nats]
+symbol = "nats "
+
+[nim]
+symbol = "nim "
+
+[nix_shell]
+symbol = "nix "
 
 [ocaml]
-format = '(via [$symbol($version )(\($switch_indicator$switch_name\) )]($style))'
+symbol = "ml "
 
 [opa]
-format = '(via [$symbol($version )]($style))'
+symbol = "opa "
+
+[os.symbols]
+AIX = "aix "
+Alpaquita = "alq "
+AlmaLinux = "alma "
+Alpine = "alp "
+Amazon = "amz "
+Android = "andr "
+Arch = "rch "
+Artix = "atx "
+CentOS = "cent "
+Debian = "deb "
+DragonFly = "dfbsd "
+Emscripten = "emsc "
+EndeavourOS = "ndev "
+Fedora = "fed "
+FreeBSD = "fbsd "
+Garuda = "garu "
+Gentoo = "gent "
+HardenedBSD = "hbsd "
+Illumos = "lum "
+Kali = "kali "
+Linux = "lnx "
+Mabox = "mbox "
+Macos = "mac "
+Manjaro = "mjo "
+Mariner = "mrn "
+MidnightBSD = "mid "
+Mint = "mint "
+NetBSD = "nbsd "
+NixOS = "nix "
+OpenBSD = "obsd "
+OpenCloudOS = "ocos "
+openEuler = "oeul "
+openSUSE = "osuse "
+OracleLinux = "orac "
+Pop = "pop "
+Raspbian = "rasp "
+Redhat = "rhl "
+RedHatEnterprise = "rhel "
+RockyLinux = "rky "
+Redox = "redox "
+Solus = "sol "
+SUSE = "suse "
+Ubuntu = "ubnt "
+Ultramarine = "ultm "
+Unknown = "unk "
+Void = "void "
+Windows = "win "
+
 [package]
-format = '(is [$symbol$version]($style) )'
+symbol = "pkg "
 
 [perl]
-format = '(via [$symbol($version )]($style))'
+symbol = "pl "
 
 [php]
-format = '(via [$symbol($version )]($style))'
+symbol = "php "
+
+[pijul_channel]
+symbol = "pijul "
+
+[pulumi]
+symbol = "pulumi "
 
 [purescript]
-format = '(via [$symbol($version )]($style))'
+symbol = "purs "
 
 [python]
-format = '(via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style))'
+symbol = "py "
 
 [quarto]
-format = '(via [$symbol($version )]($style))'
+symbol = "quarto "
 
 [raku]
-format = '(via [$symbol($version-$vm_version )]($style))'
-
-[red]
-format = '(via [$symbol($version )]($style))'
-
-[rlang]
-format = '(via [$symbol($version )]($style))'
+symbol = "raku "
 
 [ruby]
-format = '(via [$symbol($version )]($style))'
+symbol = "rb "
 
 [rust]
-format = '(via [$symbol($version )]($style))'
+symbol = "rs "
 
 [scala]
-format = '(via [$symbol($version )]($style))'
+symbol = "scala "
+
+[spack]
+symbol = "spack "
+
+[solidity]
+symbol = "solidity "
+
+[status]
+symbol = "[x](bold red) "
+
+[sudo]
+symbol = "sudo "
 
 [swift]
-format = '(via [$symbol($version )]($style))'
+symbol = "swift "
 
 [typst]
-format = '(via [$symbol($version )]($style))'
+symbol = "typst "
 
-[vagrant]
-format = '(via [$symbol($version )]($style))'
-
-[vlang]
-format = '(via [$symbol($version )]($style))'
+[terraform]
+symbol = "terraform "
 
 [zig]
-format = '(via [$symbol($version )]($style))'
+symbol = "zig "
