@@ -3,13 +3,8 @@ format = '''
 $custom
 $all'''
 
-[custom.myfunc_default]
-when = """! using-custom-func.sh"""
-command = 'echo "forked/func (default)"'
-style = "yellow"
-
-[custom.myfunc_nondefault]
-when = """using-custom-func.sh"""
+[custom.myfunc]
+when = true
 command = 'current-func-bin-path.sh'
 style = "yellow"
 
