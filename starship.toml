@@ -1,12 +1,19 @@
 
 format = '''
 $custom
+$env_var
 $all'''
 
 [custom.myfunc]
 when = true
 command = 'current-func-bin-path.sh'
 style = "yellow"
+
+[env_var.FUNC_ENABLE_HOST_BUILDER]
+default = ""
+variable = "FUNC_ENABLE_HOST_BUILDER"
+style = "red"
+format = "HOST_BUILDER=[$env_value]($style)"
 
 [aws]
 symbol = "aws "
