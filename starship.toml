@@ -13,17 +13,6 @@ when = """using-custom-func.sh"""
 command = 'current-func-bin-path.sh'
 style = "yellow"
 
-# [env_var.FUNC_BIN_PATH]
-# variable = "FUNC_BIN_PATH"
-# default = "forked/func (default)"
-# format = "[$env_value]($style)"
-# style = "yellow"
-
-# [custom.my_func]
-# when = true
-# command = '[ -z $FUNC_BIN_PATH ] && echo "using default func" || echo "using $FUNC_BIN_PATH"'
-# command = 'echo "AWDADD"'
-
 [aws]
 symbol = "aws "
 

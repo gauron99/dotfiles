@@ -5,9 +5,9 @@
 
 FILES_PATH=(
 	"$HOME/.bashrc"
-	"$HOME/.config/starship.toml"
 	"$HOME/.vimrc"
 	"$HOME/.tmux.conf"
+	"$HOME/.config/starship.toml"
 	)
 DIRS_PATH=(
 	"$HOME/.bashrc.d"
