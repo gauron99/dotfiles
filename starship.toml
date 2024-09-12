@@ -1,7 +1,7 @@
 
 format = '''
 $custom
-$env_var
+${env_var.FUNC_ENABLE_HOST_BUILDER},${env_var.FUNC_BUILDER},${env_var.FUNC_CONTAINER}
 $all'''
 
 [custom.myfunc]
@@ -13,7 +13,20 @@ style = "yellow"
 default = ""
 variable = "FUNC_ENABLE_HOST_BUILDER"
 style = "red"
-format = "HOST_BUILDER=[$env_value]($style)"
+format = "enabled=[$env_value]($style)"
+
+[env_var.FUNC_BUILDER]
+default = ""
+variable = "FUNC_BUILDER"
+style = "red"
+format = "builder=[$env_value]($style)"
+
+[env_var.FUNC_CONTAINER]
+default = ""
+variable = "FUNC_CONTAINER"
+style = "red"
+format = "container=[$env_value]($style)"
+
 
 [aws]
 symbol = "aws "
