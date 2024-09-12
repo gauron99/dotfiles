@@ -115,6 +115,12 @@ parser() {
 
 
 main(){
+
+	# always source this file ('source funchere' or '. funchere')
+	#if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  #  echo "This script should be sourced, not executed."
+  #  exit 1
+	#fi
 	parser "$@"
 }
 
