@@ -1,7 +1,6 @@
 
 format = '''
-$custom
-${env_var.FUNC_ENABLE_HOST_BUILDER},${env_var.FUNC_BUILDER},${env_var.FUNC_CONTAINER}
+$custom ${env_var.FUNC_ENABLE_HOST_BUILDER},${env_var.FUNC_BUILDER},${env_var.FUNC_CONTAINER},${env_var.FUNC_REGISTRY}
 $all'''
 
 [custom.myfunc]
@@ -13,19 +12,26 @@ style = "yellow"
 default = ""
 variable = "FUNC_ENABLE_HOST_BUILDER"
 style = "red"
-format = "enabled=[$env_value]($style)"
+format = "enable=[$env_value]($style)"
 
 [env_var.FUNC_BUILDER]
 default = ""
 variable = "FUNC_BUILDER"
 style = "red"
-format = "builder=[$env_value]($style)"
+format = "b=[$env_value]($style)"
 
 [env_var.FUNC_CONTAINER]
 default = ""
 variable = "FUNC_CONTAINER"
 style = "red"
-format = "container=[$env_value]($style)"
+format = "cont=[$env_value]($style)"
+
+
+[env_var.FUNC_REGISTRY]
+default = ""
+variable = "FUNC_REGISTRY"
+style = "red"
+format = "reg=[$env_value]($style)"
 
 
 [aws]
@@ -111,6 +117,10 @@ symbol = "jl "
 
 [kotlin]
 symbol = "kt "
+
+[kubernetes]
+symbol = ""
+disabled = false
 
 [lua]
 symbol = "lua "
