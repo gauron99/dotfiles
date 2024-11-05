@@ -7,7 +7,9 @@ alias la='ls -la'
 alias bsh='vim ~/.bashrc'
 alias bsha='vim ~/.bashrc.d'
 
-alias v='vim'
+#alias vim for gvim which has +clipboard enabled
+alias v='gvim -v'
+alias vim='gvim -v'
 
 #git
 alias gs='git status'
@@ -16,6 +18,7 @@ alias ga='git add'
 alias gc='git commit'
 alias gp='git push' 
 alias gl='git log --oneline'
+alias fastgit='git add -u && git commit -sm "$1" || git commit -sm "fix" && git push'
 
 #k8s
 alias k='kubectl'
