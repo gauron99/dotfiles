@@ -11,7 +11,7 @@ validate_path(){
 	if [ -f "$path/func" ];then
 		return 0
 	fi
-	echo "func bin doesnt exists in '$path', is it built?"
+	echo "func bin doesnt exist in '$path', is it built?"
 	return 1
 }
 
