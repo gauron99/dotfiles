@@ -19,7 +19,7 @@ validate_path(){
 # Will do some basic validation of the directory (needs file called func atleast)
 set_func_alias(){
 	path=$PWD
-	if [ "$1" == "reset" ];then
+	if [ "$1" == "reset" ] || [ "$1" == "default" ];then
 		export FUNC_BIN_PATH=
 		unalias f
 		unalias func

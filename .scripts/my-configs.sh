@@ -86,7 +86,7 @@ sync_to_github() {
 		else
     	git add -u
 		fi
-    git commit -m "Update dotfiles"
+    git commit -m "Automatic update"
     git push
 }
 
