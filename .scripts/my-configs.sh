@@ -24,7 +24,7 @@ GIT_REPO="$HOME/forked/dotfiles"
 # if the directory of git repo doesnt exist, create it and clone
 init_git_dir(){
 	if [ -d "$GIT_REPO" ] && [ "$(ls -A "$GIT_REPO")" ]; then
-		echo "$GIT_REPO directory already exists"
+		echo "$GIT_REPO directory already exists, all good"
 	else
 		echo "Initializing $GIT_REPO"
 		mkdir -p $GIT_REPO 
@@ -86,6 +86,7 @@ sync_to_github() {
 		else
     	git add -u
 		fi
+		git status
     git commit -m "Automatic update"
     git push
 }
