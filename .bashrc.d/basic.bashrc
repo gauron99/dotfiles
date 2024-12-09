@@ -16,7 +16,6 @@ alias gs='git status'
 alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
-alias gp='git push' 
 alias gl='git log --oneline'
 alias fastgit='git add -u && git commit -sm "$1" || git commit -sm "fix" && git push'
 

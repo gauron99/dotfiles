@@ -38,3 +38,6 @@ PATH="/home/dfridric/cloned/alacritty/target/release:$PATH"
 
 # add my ~/.scripts here
 PATH="~/.scripts:$PATH"
+
+# go path
+export PATH=$PATH:/usr/local/go/bin
