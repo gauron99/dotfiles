@@ -17,7 +17,7 @@ alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
 alias gl='git log --oneline'
-alias fastgit='git add -u && git commit -sm "$1" || git commit -sm "fix" && git push'
+alias fastgit='git add -u && git commit -sm "$1" && git push || git commit -sm "fix" && git push'
 
 #k8s
 alias k='kubectl'
