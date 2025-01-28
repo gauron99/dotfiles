@@ -41,3 +41,6 @@ PATH="~/.scripts:$PATH"
 
 # go path
 export PATH=$PATH:/usr/local/go/bin
+
+## use REDHAT registry by default
+export FUNC_REGISTRY=quay.io/dfridric

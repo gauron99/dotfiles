@@ -2,6 +2,7 @@
 # author: gauron99
 
 alias ..='cd ..'
+alias ...='cd ../..'
 alias ll='ls -l'
 alias la='ls -la'
 alias bsh='vim ~/.bashrc'
@@ -9,6 +10,7 @@ alias bsha='vim ~/.bashrc.d'
 
 #alias vim for gvim which has +clipboard enabled
 alias v='gvim -v'
+alias vi='gvim -v'
 alias vim='gvim -v'
 
 #git
@@ -17,7 +19,7 @@ alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
 alias gl='git log --oneline'
-alias fastgit='git add -u && git commit -sm "$1" && git push || git commit -sm "fix" && git push'
+alias fastgit='source fastgit'
 
 #k8s
 alias k='kubectl'
