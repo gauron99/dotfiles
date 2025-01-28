@@ -1,0 +1,5 @@
+# view only images based on grep
+docker images --format {{.Repository}}?{{.Tag}}?{{.ID}} | grep "loca" 
+
+# remove only images based on grep with ? delimeter (because : can appear in the repo -> like localhost:8080 etc.)
+docker rmi $(docker images --format {{.Repository}}?{{.Tag}}?{{.ID}} | grep "loca" | awk -F? '{ print $3 }')
