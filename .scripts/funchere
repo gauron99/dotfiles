@@ -6,12 +6,12 @@
 # sets FUNC_BIN_PATH to path if successful
 
 # this validates the target dir. Can add various checks: go.mod, git source?
-validate_path(){
-	path=$1
-	if [ -f "$path/func" ];then
+validate_bin(){
+	bin=$1
+	if [ -f "$bin" ];then
 		return 0
 	fi
-	echo "func bin doesnt exist in '$path', is it built?"
+	echo "func '$bin' doesnt exist, is it built?"
 	return 1
 }
 
@@ -30,10 +30,11 @@ set_func_alias(){
 		path="$1"
 	fi
 	#	create a full path for binary (strip any trailing slash, if any)	
-	bin="${path%/}/func"
+	#bin="${path%/}/func"
+	bin=$(realpath "$path/func")
 
-	# validate path, exit if returns false
-	validate_path $path || return
+	# validate that func is in path, exit if returns false
+	validate_bin $bin || return
 
 	# set func
 	alias f="$bin"
