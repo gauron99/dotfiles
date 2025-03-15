@@ -1,0 +1,9 @@
+if git diff --quiet --exit-code; then
+	git commit -m "$1" && git push || {
+		git commit -sm "fix" && git push
+		}
+else
+	git add -u && git commit -m "$1" && git push || {
+ 		git commit -sm "fix" && git push
+  }
+fi
