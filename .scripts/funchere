@@ -60,9 +60,9 @@ check_help_flag() {
 print_help() {
 	echo "Usage: $0 [OPTIONS]"
 	echo "Options:"
-	echo "  -h, --help   Show this help message and exit"
+	echo "  -h, --help           Sho this help message and exit"
 	echo "  reset, default       Reset the 'func' alias to its default state"
-	echo "  [PATH]               Set a new 'func' alias pointing to the specified PATH"
+	echo "  [PATH]               Set a new 'func' alias pointing to the specified PATH (If not provided, the current directory is used)"
 
 }
 
