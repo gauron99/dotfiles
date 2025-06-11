@@ -97,6 +97,14 @@ sync_from_github() {
     git pull origin main
 }
 
+# copy files to a git repo to sync up (dont upload to github)
+# and display the diff
+see_diff() {
+	cd "$GIT_REPO" || exit
+	copy_to_git_dir
+	git diff
+}
+
 # Command parser function
 parser() {
     case "$1" in
@@ -106,6 +114,9 @@ parser() {
             ;;
         fetch|get)
             sync_from_github
+            ;;
+        diff)
+            see_diff
             ;;
         *)
             echo "Usage: $0 {upload|send|fetch|get}"
