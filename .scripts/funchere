@@ -11,7 +11,9 @@ validate_bin(){
 	if [ -f "$bin" ];then
 		return 0
 	fi
-	echo "func '$bin' doesnt exist, is it built?"
+	echo "binary '$bin' doesnt exist, is it a func directory and/or is the binary built?"
+	echo ""
+	print_help
 	return 1
 }
 
@@ -21,9 +23,9 @@ set_func_alias(){
 	path=$PWD
 	if [ "$1" == "reset" ] || [ "$1" == "default" ];then
 		export FUNC_BIN_PATH=
-		unalias f
-		unalias func
-		echo "unalias f & func"
+		unalias f 2>/dev/null
+		unalias func 2>/dev/null
+		echo "unaliased f & func"
 		return 0
 	fi
 	if [ "$1" != "" ];then
@@ -44,7 +46,31 @@ set_func_alias(){
 	echo "successfuly set func alias to $bin"
 }
 
+# returns 0 on an error and 1 on success
+check_help_flag() {
+	for arg in "$@"; do
+		if [[ "$arg" == "--help" || "$arg" == "-h" ]]; then
+			print_help
+			return 0
+		fi
+	done
+	return 1
+}
+
+print_help() {
+	echo "Usage: $0 [OPTIONS]"
+	echo "Options:"
+	echo "  -h, --help   Show this help message and exit"
+	echo "  reset, default       Reset the 'func' alias to its default state"
+	echo "  [PATH]               Set a new 'func' alias pointing to the specified PATH"
+
+}
+
 main(){
+	check_help_flag "$@"	
+	if [[ $? -eq 0 ]]; then
+		return 0
+	fi
 	set_func_alias $@
 }
 # always source this file ('source funchere' or '. funchere')

@@ -44,3 +44,10 @@ export PATH=$PATH:/usr/local/go/bin
 
 ## use REDHAT registry by default
 export FUNC_REGISTRY=quay.io/dfridric
+
+## pyenv setup
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+## load pyenv-virtualenv automatically 
+#eval "$(pyenv virtualenv-init -)"

@@ -117,11 +117,12 @@ parser() {
 
 main(){
 
-	# always source this file ('source funchere' or '. funchere')
-	#if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-  #  echo "This script should be sourced, not executed."
-  #  exit 1
-	#fi
+	# DON'T source this file
+	# rather execute it instead './my-configs.sh'
+	if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
+    echo "This script should NOT be sourced but executed instead."
+    exit 1
+	fi
 	parser "$@"
 }
 

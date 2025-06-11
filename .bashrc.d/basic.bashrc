@@ -24,3 +24,6 @@ alias fastgit='source fastgit'
 #k8s
 alias k='kubectl'
 alias kns='kubens'
+
+#podman&docker cleanup
+alias engineclean='podman system prune && docker system prune'
